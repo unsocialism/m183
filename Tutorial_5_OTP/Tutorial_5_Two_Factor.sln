@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorial_5_Two_Factor", "Tutorial_5_Two_Factor\Tutorial_5_Two_Factor.csproj", "{2B2DF2D7-8EE4-4370-B530-1A7A1141FFB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B2DF2D7-8EE4-4370-B530-1A7A1141FFB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B2DF2D7-8EE4-4370-B530-1A7A1141FFB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B2DF2D7-8EE4-4370-B530-1A7A1141FFB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B2DF2D7-8EE4-4370-B530-1A7A1141FFB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57A9DEA2-4D48-4DE2-AEF1-257C992CEA67}
+	EndGlobalSection
+EndGlobal
