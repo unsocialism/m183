@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorial_10_SQL Injection", "Tutorial_10_SQL Injection\Tutorial_10_SQL Injection.csproj", "{2765213D-FE53-4653-B732-BA5304774B87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2765213D-FE53-4653-B732-BA5304774B87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2765213D-FE53-4653-B732-BA5304774B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2765213D-FE53-4653-B732-BA5304774B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2765213D-FE53-4653-B732-BA5304774B87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA3CDE4A-595C-45BB-BA02-1FAC8D6B9DA6}
+	EndGlobalSection
+EndGlobal
